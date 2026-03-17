@@ -5,6 +5,7 @@ import RegisterPage from '@/pages/RegisterPage'
 import DashboardPage from '@/pages/DashboardPage'
 import ProtectedRoute from '@/components/shared/ProtectedRoute'
 import AppLayout from '@/components/shared/AppLayout'
+import BookClubDetailPage from '@/pages/BookClubDetailPage'
 
 const App = () => {
   const { isAuthenticated } = useAuth()
@@ -25,6 +26,26 @@ const App = () => {
           <ProtectedRoute>
             <AppLayout>
               <DashboardPage />
+            </AppLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path='/book_clubs/:id'
+        element={
+          <ProtectedRoute>
+            <AppLayout>
+              <BookClubDetailPage />
+            </AppLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path='/book_clubs/:id'
+        element={
+          <ProtectedRoute>
+            <AppLayout>
+              <BookClubDetailPage />
             </AppLayout>
           </ProtectedRoute>
         }

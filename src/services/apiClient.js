@@ -11,10 +11,16 @@ const getHeaders = () => {
 const handleResponse = async (res) => {
     const data = await res.json()
     if (!res.ok) {
-      throw new Error(data.error || data.errors?.join(', ') || 'Something went wrong')
+      // data.error → single string from service objects
+      // data.errors → array from model validations OR string from some responses
+      const message =
+        data.error ||
+        (Array.isArray(data.errors) ? data.errors.join(', ') : data.errors) ||
+        'Something went wrong'
+      throw new Error(message)
     }
     return data
-}
+  }
 
 const apiClient = {
     get: (path) =>
