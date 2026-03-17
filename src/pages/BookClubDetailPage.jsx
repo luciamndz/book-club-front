@@ -37,12 +37,17 @@ const BookClubDetailPage = () => {
 
   const handleSubmitBook = async (votingRoundId, bookId) => {
     await submitBook(votingRoundId, bookId)
-    refetchBooks()  // refresh so book status updates to "submitted"
+    refetchBooks() 
   }
 
   const handleCastVote = async (votingRoundId, bookId) => {
     await castVote(votingRoundId, bookId)
-    // castVote already calls refetch internally via useVotingRound
+    
+  }
+
+  const handleFinishVoting = async (votingRoundId) => {
+    await finishVoting(votingRoundId)
+    refetchBooks()
   }
 
   if (loading) {
@@ -74,7 +79,7 @@ const BookClubDetailPage = () => {
         isAdmin={isAdmin}
         onStartDraft={createVotingRound}
         onOpenVoting={openVoting}
-        onFinishVoting={finishVoting}
+        onFinishVoting={handleFinishVoting}
       />
 
       {/* Winner section */}

@@ -32,9 +32,6 @@ const WinnersSection = ({ votingRound }) => {
             <div>
               <p className='text-sm font-medium'>{votingRound.winner.title}</p>
               <p className='text-xs text-muted-foreground mt-0.5'>{votingRound.winner.author}</p>
-              <p className='text-xs text-muted-foreground mt-1'>
-                Won with {votingRound.vote_count} {votingRound.vote_count === 1 ? 'vote' : 'votes'}
-              </p>
             </div>
           </div>
         </div>

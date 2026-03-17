@@ -15,12 +15,11 @@ const BookCard = ({
 }) => {
   const badge = STATUS_BADGE[book.status] ?? STATUS_BADGE.created
 
-  // Should we show the submit button?
   const showSubmit =
     votingRound?.status === 'draft' &&
     book.status === 'created'
 
-  // Should we show the vote button?
+  
   const showVote =
     votingRound?.status === 'active' &&
     book.status === 'submitted'
@@ -55,6 +54,16 @@ const BookCard = ({
 
         {book.genre && (
           <p className='text-xs text-muted-foreground'>{book.genre}</p>
+        )}
+
+        {book.status === 'selected' && book.selected_at && (
+          <p className='text-xs text-muted-foreground mt-0.5'>
+            Selected {new Date(book.selected_at).toLocaleDateString('en-US', {
+              month: 'short',
+              day:   'numeric',
+              year:  'numeric',
+            })}
+          </p>
         )}
 
         {/* Actions row */}
