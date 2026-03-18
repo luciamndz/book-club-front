@@ -17,9 +17,6 @@ const bookClubService = {
     
     join: (id) => 
         apiClient.post(`/book_clubs/${id}/join`),
-
-    destroy: (id) => 
-        apiClient.delete(`/book_clubs/${id}`),
 }
 
 export default bookClubService

@@ -21,8 +21,6 @@ const authService = {
 
     logout: () => 
         apiClient.delete('/auth/logout'),
-
-    me: () => apiClient.get('/users/me'),
 }
 
 export default authService

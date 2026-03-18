@@ -37,12 +37,7 @@ const useBookClubs = () => {
         return updatedBookClub
     }
 
-    const deleteBookClub = async (id) => {
-        await bookClubService.destroy(id)
-        setBookClubs((prev) => prev.filter((bc) => bc.id !== id))
-    }
-
-    return { bookClubs, loading, error, createBookClub, joinBookClub, deleteBookClub, refetch: fetchBookClubs }
+    return { bookClubs, loading, error, createBookClub, joinBookClub, refetch: fetchBookClubs }
 }
 
 export default useBookClubs
